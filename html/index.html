@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body>
+    <header>
+        <span>
+            <img src="https://www.tomerposters.co.il/product/%d7%a1%d7%95%d7%a4%d7%a8-%d7%9e%d7%a8%d7%99%d7%95-%d7%97%d7%91%d7%95%d7%a8%d7%94/" alt="">
+        </span>
+        <h1>
+            Welcome to my gaming world
+        </h1>
+    </header>
+    <main>
+      <form action="" id="loginForm">
+        <label for=" name"> name :</label>
+        <input type="text" id="name" required placeholder="name">
+        <label for="password">password :</label>
+        <input type="password" id="password" placeholder="password">
+      </form>
+      <div id="extraFields" style="display:none ; text-align: center; margin: 30px;" >
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="example@example.com">
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" placeholder="052-1234567">
+    </div>
+      <div id="btns">
+        <button class="middle" type="button" onclick="signUp()">sing Up</button>
+        <button class="middle" type="button" onclick="logIn()">log in</button>
+      </div>
+    <span>
+        <button class="reset" type="reset" id="reset" onclick=" resetForm()">reset</button>
+    </span>
+   <a href="/html/ixigul.html" class="tictacto">tictacto</a>
+    </main>
+    <footer>© 2024 gaming world</footer>
+  <script src="/js/index.js"></script>
+  </body>
+</html>
