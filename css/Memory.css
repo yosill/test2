@@ -1,48 +1,52 @@
-body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    text-align: center;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 50px;
-}
-
 .container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Adjust for desired grid size */
-    gap: 10px;
-}
-
-.card {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .card {
     width: 100px;
     height: 100px;
-    background-color: #eee;
+    background-color: #fff; /* Default background color */
     border: 1px solid #ccc;
+    margin: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.card.flipped {
-    background-color: #007bff;
-    color: #fff;
-}
-
-.card.matched {
-    background-color: #6c757d;
-    cursor: default;
-}
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .card.hidden {
+    background-color: #fff; /* Light background color for hidden cards */
+    pointer-events: none; /* Disable clicks on hidden cards */
+  }
+  
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .card.matched {
+    background-color: #0f0;
+  }
+  
+  .score {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  
+  .card-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff; /* Initially set inner card background to white (hidden) */
+    transition: all 0.3s ease;
+    backface-visibility: hidden; /* Prevent flickering during flip animation */
+  }
+  
+  /* .card-inner.revealed {
+    background-color: ; /* Set the background color to the card's color */
+  /* }  */
+  

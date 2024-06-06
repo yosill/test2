@@ -1,4 +1,4 @@
-/
+
  function checkUserExists(name, password) {
     let users = JSON.parse(localStorage.getItem('users')) || [];
     return users.find(user => user.name === name && user.password === password);
@@ -49,7 +49,9 @@ function  resetForm(){
  boton.addEventListener("click" ,display)
 
  const tictacto = document.querySelector(".tictacto")
+ const guessing = document.querySelector(".guessing")
 
  function display(){
     tictacto.style.display = "block"
+    guessing.style.display = "block"
  }

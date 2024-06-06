@@ -10,6 +10,7 @@ html, body{
 
 body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -33,3 +34,26 @@ body{
     height:calc(33% - 6px);
     margin: 3px;
 }
+.tictacto{
+    border: purple solid 5px;
+    border-radius: 10%;
+    font-size: 50px;
+    font-weight: 800;
+    padding: 5px;
+    display: none;
+    display: flex;
+    margin-top: 300px;
+    align-items: center;
+  }
+
+  .guessing{
+    border: purple solid 5px;
+    border-radius: 10%;
+    font-size: 50px;
+    font-weight: 800;
+    padding: 5px;
+    display: none;
+    display: flex;
+    margin-top: 300px;
+    align-items: center;
+  }
