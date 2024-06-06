@@ -5,6 +5,7 @@ body{
     text-align: center;
     display: flex;
     flex-direction: column;
+    gap: 20px;
     
 
 }
@@ -40,4 +41,22 @@ margin: 15px;
 padding: 10px;
 margin-bottom: 10px;
 
+}
+a{
+  border: purple solid 5px;
+  color: blue;
+    border-radius: 10%;
+    font-size: 50px;
+    font-weight: 800;
+    padding: 50px;
+    display: none;
+    align-items: center; 
+    text-align: center;
+    display: flex;
+    text-decoration: none;
+    /* flex-direction:; */
+}
+.link{
+  display: flex;
+  gap: 20px;
 }

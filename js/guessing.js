@@ -7,7 +7,7 @@ let remainingGuesses = 10; // הגדרת מספר ניחושים התחלתי
 function handleGuess() {
   const guess = parseInt(document.getElementById("guessInput").value); // קבלת הניחוש של השחקן
 
-  if (guess < 1 || guess > 50 || guess==="") {
+  if (guess < 1 || guess > 50 || guess ==='') {
     alert("אנא הזן מספר בין 1 ל-50");
     return;
   }

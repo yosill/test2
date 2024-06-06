@@ -7,6 +7,7 @@ body {
     min-height: 100vh;
     flex-direction: column;
     background-color: pink;
+    gap: 10px;
   }
   
   header {
@@ -16,16 +17,17 @@ body {
     padding: 20px;
     background-color: purple;
     color: #fff;
+    gap: 20px;
   }
   
   header h1 {
     margin: 0;
-    font-size: 2em;
+    font-size: 4em;
   }
   
   header img {
-    width: 50px;
-    height: 100px;
+    width: 200px;
+    height: auto;
     margin-right: 10px;
   }
   
@@ -100,7 +102,7 @@ body {
     background-color: #333;
     color: #fff;
   }
-  .tictacto, .guessing{
+  /* .tictacto, .guessing{
     border: purple solid 5px;
     border-radius: 10%;
     font-size: 50px;
@@ -111,5 +113,32 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
+  } */
+  a{
+    border: purple solid 5px;
+    color: blue;
+      border-radius: 10%;
+      font-size: 50px;
+      font-weight: 800;
+      padding: 50px;
+      display: none;
+      align-items: center; 
+      text-align: center;
+      display: flex;
+      text-decoration: none;
+      /* flex-direction:; */
   }
-  
+  .link{
+    display: flex;
+    gap: 20px;
+    display: none;
+
+  }
+  .eror{
+    display: none;
+    position: fixed;
+    font-weight: 900;
+    border: red solid 5px;
+    padding: 10px;
+  }
+ 

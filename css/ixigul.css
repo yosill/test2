@@ -1,6 +1,8 @@
 *{
     margin: 0;
     padding: 0;
+    
+    
 }
 
 html, body{
@@ -42,12 +44,12 @@ body{
     padding: 5px;
     display: none;
     display: flex;
-    margin-top: 300px;
+    margin-top: 100px;
     align-items: center;
   }
 
-  .guessing{
-    border: purple solid 5px;
+  /* .guessing{ */
+    /* border: purple solid 5px;
     border-radius: 10%;
     font-size: 50px;
     font-weight: 800;
@@ -55,5 +57,23 @@ body{
     display: none;
     display: flex;
     margin-top: 300px;
-    align-items: center;
+    align-items: center; */
+  /* } */
+  a{
+    border: purple solid 5px;
+    color: blue;
+      border-radius: 10%;
+      font-size: 50px;
+      font-weight: 800;
+      padding: 50px;
+      display: none;
+      align-items: center; 
+      text-align: center;
+      display: flex;
+      text-decoration: none;
+      /* flex-direction:; */
+  }
+  .link{
+    display: flex;
+    gap: 20px;
   }
