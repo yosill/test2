@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חי צומח דומם</title>
+    <link rel="stylesheet" href="/css/Scadaddle.css">
+</head>
+<body>
+    <h1><i>חי צומח דומם</i></h1>
+
+    <div id="game-container">
+        <p id="current-letter">:אות נוכחית </p>
+
+        <div id="input-fields">
+            <label for="animal-input">:חי</label>
+            <input type="text" id="animal-input">
+
+            <label for="plant-input">:צומח</label>
+            <input type="text" id="plant-input">
+
+            <label for="object-input">:דומם</label>
+            <input type="text" id="object-input">
+        </div>
+
+        <button onclick="startGame()">התחל משחק</button>
+        <button id="submitButton" onclick="checkAnswers()">שלח</button>
+        <p id="timer">30</p>
+        <p id="score">ניקוד: 0</p>
+        <p id="feedback"></p>
+    </div>
+    <div class="link">
+        <a href="/html/guessing.html">guessing</a>
+        <a href="/html/Memory.html">Memory</a>
+      <a href="/html/ixigul.html"><p>ixigul</p></a>
+        <a href="/index.html">home</a>
+      </div>
+    <script src="/js/Scadaddle.js"></script>
+</body>
+</html>

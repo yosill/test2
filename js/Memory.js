@@ -1,89 +1,81 @@
 const cards = [
-    { color: "red", matched: false, hidden: true, revealed: false },
-    { color: "blue", matched: false, hidden: true, revealed: false },
-    { color: "red", matched: false, hidden: true, revealed: false }, // Duplicate for matching
-    { color: "blue", matched: false, hidden: true, revealed: false }, // Duplicate for matching
-    { color: "green", matched: false, hidden: true, revealed: false },
-    { color: "yellow", matched: false, hidden: true, revealed: false },
-    { color: "green", matched: false, hidden: true, revealed: false }, // Duplicate for matching
-    { color: "yellow", matched: false, hidden: true, revealed: false }, // Duplicate for matching
-  ];
-  
-  const container = document.querySelector(".container");
-  const scoreDisplay = document.querySelector(".score"); // Reference the score display element
-  let firstCard = null;
-  let secondCard = null;
-  let score = 0;
-  let moves = 0;
-  
-  function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+  { id: 1, value: "אדום", matched: false },
+  { id: 2, value: "ורוד", matched: false },
+  { id: 3, value: "סגול", matched: false },
+  // ... וכן הלאה עבור כל הקלפים
+];
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.random() * (i + 1);
+    [array[i], array[j]] = [array[j], array[i]];
   }
-  
-  function createCard(card) {
-    const cardElement = document.createElement("div");
-    cardElement.classList.add("card", "hidden");
-    cardElement.style.backgroundColor = "#fff"; // Initially set background to white (hidden)
-  
-    const innerCard = document.createElement("div");
-    innerCard.classList.add("card-inner");
-    innerCard.style.backgroundColor = card.color; // Set color on the inner card
-  
-    cardElement.appendChild(innerCard);
-  
-    cardElement.addEventListener("click", () => {
-      if (card.matched || card.revealed) return; // Ignore clicks on matched or revealed cards
-  
-      card.revealed = true; // Mark the card as revealed
-      innerCard.classList.add("revealed"); // Reveal the inner card color
-  
-      if (!firstCard) {
-        firstCard = card;
-      } else if (!secondCard) {
-        secondCard = card;
-  
-        if (firstCard.color === secondCard.color) {
-          firstCard.matched = true;
-          secondCard.matched = true;
-          score++;
-          scoreDisplay.textContent = `Score: ${score}`;
-  
-          // Reveal all remaining cards of the matching color
-          cards.forEach((otherCard) => {
-            if (otherCard.color === firstCard.color && !otherCard.matched) {
-              otherCard.revealed = true;
-              const otherCardElement = container.querySelector(`.card[data-id="${otherCard.id}"]`);
-              otherCardElement.querySelector(".card-inner").classList.add("revealed");
-            }
-          });
-  
-          setTimeout(() => {
-            cardElement.classList.add("matched");
-            firstCard = null;
-            secondCard = null;
-          }, 100);
-        } else {
-          setTimeout(() => {
-            cardElement.classList.remove("revealed");
-            firstCard = null;
-            secondCard = null;
-          }, 500);
-        }
-      }
-    });
-  
-    // Add a unique data-id attribute to each card for easy identification
-    cardElement.dataset.id = card.id;
-  
-    return cardElement;
+  return array;
+}
+function createCard(card) {
+  const cardElement = document.createElement("div");
+  cardElement.classList.add("card", "hidden"); // מוסתר בתחילה
+
+  const innerCard = document.createElement("div");
+  innerCard.classList.add("card-inner");
+
+  if (useColors) {
+    innerCard.style.backgroundColor = card.value; // הגדר צבע עבור צבעים
+  } else {
+    innerCard.textContent = card.value; // הצג מספר עבור מספרים
   }
-  
-  // Start the game
-  const shuffledCards = shuffle(cards);
-  shuffledCards.forEach((card) => {
-    const cardElement = createCard(card
-    )})  
+
+  cardElement.appendChild(innerCard);
+
+  cardElement.addEventListener("click", () => {
+    revealCard(card);
+  });
+
+  return cardElement;
+}
+function displayCards() {
+  shuffleCards = shuffle(cards); // ערבב קלפים
+
+  shuffleCards.forEach((card) => {
+    const cardElement = createCard(card);
+    container.appendChild(cardElement);
+  });
+}
+let firstCard = null;
+let secondCard = null;
+
+function revealCard(card) {
+  if (card.matched) return; // דלג על קלפים תואמים
+
+  if (firstCard === null) {
+    firstCard = card;
+    firstCard.classList.add("revealed");
+  } else {
+    secondCard = card;
+    secondCard.classList.add("revealed");
+
+    checkMatch();
+  }
+}
+function checkMatch() {
+  if (firstCard.value === secondCard.value) {
+    firstCard.classList.add("matched");
+    secondCard.classList.add("matched");
+    firstCard.matched = true;
+    secondCard.matched = true;
+    score++;
+    scoreDisplay.textContent = `ציון: ${score}`;
+
+    resetCardsAfterDelay(); // אפס קלפים לאחר עיכוב
+  } else {
+    // טפל בהתאמה שגויה (לדוגמה, הפוך קלפים חזרה, הענשה וכו')
+  }
+
+  firstCard = null;
+  secondCard = null;
+}
+function resetCardsAfterDelay() {
+  setTimeout(() => {
+    const revealedCards = document.querySelectorAll(".revealed");
+    revealedCards.forEach((card) => card.classList.remove("revealed"));
+  }, 500); // התאם את העיכוב לפי הצורך
+}

@@ -25,9 +25,11 @@ function signUp() {
   localStorage.setItem("users", JSON.stringify(users));
   alert("User registered successfully!");
 }
+
 function shutdown(){
     eror.style.display = "none";
 }
+
 // פונקציה לבדוק אם המשתמש כבר קיים ולבצע התחברות
 function logIn() {
   const name = document.getElementById("name").value;
@@ -58,7 +60,7 @@ boton.addEventListener("click", display);
 const link = document.querySelector(".link");
 
 function display() {
-    if(signUp())
+    if((signUp()) || logIn())
   link.style.display = "block";
   // guessing.style.display = "block"
 }
