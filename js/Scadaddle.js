@@ -63,7 +63,7 @@ function checkAnswers() {
 
     const correctAnswersCount = isAnimalCorrect + isPlantCorrect + isObjectCorrect;
     const responseTime = Math.floor((Date.now() - startTime) / 1000); // זמן התגובה
-    const points = responseTime * correctAnswersCount;
+    const points = (30-responseTime) * correctAnswersCount;
 
     const feedbackElement = document.getElementById('feedback');
     feedbackElement.textContent = `ניחשת ${correctAnswersCount} מילים נכונות תוך ${responseTime} שניות! קיבלת ${points} נקודות.`;

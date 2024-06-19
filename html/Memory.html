@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>משחק זיכרון</title>
+  <title>Memory Game</title>
   <link rel="stylesheet" href="/css/Memory.css">
 </head>
 <body>
-  <div class="container">
-    </div>
+  <h1>משחק זיכרון</h1>
 
-  <div class="score-container">
-    <span class="score">ציון: 0</span>
+  <div id="card-grid"></div>
+
+  <div id="game-status">
+    <p>מספר צעדים: <span id="turns">0</span></p>
+    <p>התאמות: <span id="matches">0</span></p>
   </div>
   <div class="link">
     <a href="/html/guessing.html">guessing</a>
-  <a href="/html/ixigul.html"><p>ixigul</p></a>
+    <a href="/html/ixigul.html">Memory</a>
+    <a href="/html/Scadaddle.html">Scadaddle</a>
     <a href="/index.html">home</a>
   </div>
   <script src="/js/Memory.js"></script>
